@@ -1,18 +1,25 @@
 <html>
-  <head></head>
+  <head>
+    <title>Register a device</title>
+    <link href='style.css' rel='stylesheet'>
+  </head>
 
   <body>
     <main>
-      <form method="POST" action="http://172.31.192.36:3000/regComp">
+      <form>
         <fieldset>
           <input type="text" name="register-ip" required>
-          <input type="text" name-"register-alias" required>
-          <button type="submit">Register</button>
+          <input type="text" name="register-alias" required>
+          <button id="registerBtn">Register</button>
         </fieldset>
 
       </form>
 
     </main>
-
+    <script
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+      crossorigin="anonymous"></script>
+      <script src="register.js"></script>
   </body>
 </html>
