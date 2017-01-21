@@ -1,27 +1,43 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
 
+const router = express.Router();
 
-
-router.get('/', function (req, res) {
+const index = (req, res) => {
 	res.render('index', {
 		title: 'instantPi',
 	});
-});
+};
 
-router.post('/doQuery', doQuery);
-router.post('/uploadLog', upload.single('theFile'), uploadLog);
-router.get('/dropDB', dropDB);
-router.get('/logValues', function (req, res) {
-	logsCollection.count({}, function (err, entryCount) {
-		filesCollection.count({}, function (err, fileCount) {
-			res.send({
-				fileValue: fileCount,
-				entryValue: entryCount
-			});
-		});
 
+
+const getData = (req, res) => {
+	console.log(req.body);
+	res.send([{
+		computerNumber: '1',
+		qwedqwe: 'dawedqawefwef'
+	}, {
+		computerNumber: '2',
+		qwedqwe: 'dawedqawefwef'
+	}, {
+		computerNumber: '3',
+		qwedqwe: 'dawedqawefwef'
+	}, {
+		computerNumber: '4',
+		qwedqwe: 'dawedqawefwef'
+	}]);
+};
+
+const regComp = (req, res) => {
+	console.log(req.body);
+	res.send({
+		err: 'unable to register computer'
 	});
-});
+};
+
+
+router.post('/regComp', regComp);
+router.get('/', index);
+router.get('/getData', getData);
+
 
 module.exports = router;
