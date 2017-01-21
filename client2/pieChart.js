@@ -1,11 +1,11 @@
-var data = {};
+/*var data = {};
 var brand = [];
 jsonData.forEach(function(e) {
     brand.push(e.brand);
     data[e.brand] = e.number;
 })
 
-chart = c3.generate({
+var chart = c3.generate({
     data: {
         json: [ data ],
         keys: {
@@ -14,4 +14,4 @@ chart = c3.generate({
         type:'pie',
 
     },
-});
+});*/
