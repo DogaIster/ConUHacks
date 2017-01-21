@@ -1,5 +1,13 @@
 const express = require('express');
+const plugins = require('../plugins/plugins.json');
+const path = require('path');
+const watchdog = (() => {
+	const p = plugins.names;
+	return require(path.join(__dirname, `../plugins/${p}/${p}`));
 
+})();
+
+console.log(watchdog.statusUpdateObj());
 const router = express.Router();
 
 const index = (req, res) => {
@@ -12,19 +20,11 @@ const index = (req, res) => {
 
 const getData = (req, res) => {
 	console.log(req.body);
-	res.send([{
-		computerNumber: '1',
-		qwedqwe: 'dawedqawefwef'
-	}, {
-		computerNumber: '2',
-		qwedqwe: 'dawedqawefwef'
-	}, {
-		computerNumber: '3',
-		qwedqwe: 'dawedqawefwef'
-	}, {
-		computerNumber: '4',
-		qwedqwe: 'dawedqawefwef'
-	}]);
+	let arr = [];
+	for (var i = 0; i < 6; i++) {
+		arr.push(watchdog.statusUpdateObj());
+	}
+	res.send(arr);
 };
 
 const regComp = (req, res) => {
