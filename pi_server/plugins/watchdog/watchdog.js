@@ -69,7 +69,7 @@ const getStatus = (cb) => {
 	});
 };
 
-const statusUpdateObj = (ip = '192.156.0.2', alias = 'comp') => {
+const statusUpdateObj = (ip = '192.156.0.2', alias = 'comp', id = 0) => {
 	let obj = {
 		status: 'unknown',
 		lastUpdate: 0,
@@ -77,6 +77,7 @@ const statusUpdateObj = (ip = '192.156.0.2', alias = 'comp') => {
 		uptime: 0,
 		alias,
 		ip,
+		id,
 	};
 
 	return obj;
@@ -149,7 +150,7 @@ const registerCmp = (ip, alias) => {
 			let lastEntry = res[0];
 			//push new obj on
 			lastEntry.numDevices++;
-			lastEntry.devices.push(statusUpdateObj(ip, alias));
+			lastEntry.devices.push(statusUpdateObj(ip, alias, lastEntry.devices.length));
 			console.log(`RegisterGet: ${res}`);
 			lastEntry.save((err) => {
 				if (err) {
