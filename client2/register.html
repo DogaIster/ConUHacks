@@ -7,13 +7,17 @@
 
   <body>
     <main>
-      <form class='form-horizontal'>
-        <fieldset>
-          <input type="text" name="register-ip" required>
-          <input type="text" name="register-alias" required>
+      <h1 class="text-center">Register a new device</h1>
+      <form class='text-center form-horizontal'>
+          <div class="form-group center-block">
+            <label for="register-ip">Device IP</label>
+            <input type="text" name="register-ip" required>
+          </div>
+          <div class="form-group center-block">
+            <label for="register-alias">Device alias</label>
+            <input type="text" name="register-alias" required>
+          </div>
           <button id="registerBtn">Register</button>
-        </fieldset>
-
       </form>
 
     </main>
