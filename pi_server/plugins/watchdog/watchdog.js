@@ -16,7 +16,7 @@ db.once('open', function () {
 
 const getTime = () => {
 	const d = new Date();
-	return +d.getTime();
+	return d.getTime().toString();
 };
 
 
@@ -39,13 +39,13 @@ const getStatus = (cb) => {
 				dev.lastUpdate = getTime();
 				if (res.alive) {
 					dev.status = 'on';
-					dev.uptime += getTime();
-					dev.lastRestart += getTime();
+					dev.uptime = (+dev.uptime + +getTime()).toString();
+					dev.lastRestart += (+dev.lastRestart + +getTime()).toString()
 
 				} else {
 					dev.status = 'off';
-					dev.uptime = 0;
-					dev.lastRestart = 0;
+					dev.uptime = '0';
+					dev.lastRestart = '0';
 				}
 				//if last iteration then save object as a
 				//new entry
@@ -69,13 +69,13 @@ const getStatus = (cb) => {
 	});
 };
 
-const statusUpdateObj = (ip = '192.156.0.2', alias = 'comp', id = 0) => {
+const statusUpdateObj = (ip = '192.156.0.2', device = 'comp', id = 0) => {
 	let obj = {
 		status: 'unknown',
-		lastUpdate: 0,
-		lastRestart: 0,
-		uptime: 0,
-		alias,
+		lastUpdate: '0',
+		lastRestart: '0',
+		uptime: '0',
+		device,
 		ip,
 		id,
 	};
