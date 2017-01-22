@@ -11,9 +11,8 @@ $(document).ready(function() {
       return false;
     }
 
-    //TODO: Specific alias format for validation.
-    //patt = new RegExp("");
-    if(false) {
+    patt = new RegExp("[a-zA-Z0-9-_]{1,15}");
+    if(!patt.test(registerAliasRaw)) {
       alert("Invalid alias.");
       return false;
     }
