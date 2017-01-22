@@ -1,0 +1,9 @@
+<h3>Top Devices</h3>
+<div class="grid grid-pad">
+  <div *ngFor="let device of devices" [routerLink]="['/detail', device.id]"  class="col-1-4">
+    <div class="module device">
+      <h4>{{device.device}}</h4>
+    </div>
+  </div>
+</div>
+
