@@ -1,0 +1,9 @@
+<div *ngIf="device">
+  <h2>{{selectedDevice.device}}</h2>
+  <div><label>IP: </label>{{selectedDevice.ip}}</div>
+  <div><label>Status: </label>{{selectedDevice.status}}</div>
+  <div><label>Last Restart: </label>{{selectedDevice.lastRestart}}</div>
+  <div><label>Uptime: </label>{{selectedDevice.uptime}}</div>
+  <div><label>Last Update: </label>{{selectedDevice.lastUpdate}}</div>
+  <button (click)="goBack()">Back</button>
+</div>

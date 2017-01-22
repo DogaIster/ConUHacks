@@ -1,0 +1,27 @@
+<h2>Registered Devices</h2>
+<table border="1">
+  <tr>
+    <th><label>Device Alias</label></th>
+    <th><label>Ip </label></th>
+    <th><label>Status </label></th>
+    <th><label>Last Restart </label></th>
+    <th><label>Uptime </label></th>
+    <th><label>Last Update </label></th>
+  </tr>
+  <tr class="devices" *ngFor="let device of devices"
+      [class.selected]="device === selectedDevice"
+      (click)="onSelect(device)">
+    <span class="badge">{{device.id}}</span>
+    <td style="color:blue;">{{device.device}}</td>
+    <td>{{device.ip}}</td>
+    <td>{{device.status}}</td>
+    <td>{{device.lastRestart}}</td>
+    <td>{{device.uptime}}</td>
+    <td>{{device.lastUpdate}}</td>
+  </tr>
+</table>
+<div *ngIf="selectedDevice">
+  <h2>{{selectedDevice.device || uppercase}} is selected!</h2>
+  <button (click)="gotoDetail()">View Controls</button>
+</div>
+]
