@@ -1,10 +1,10 @@
 var gpio = require('rpi-gpio');
 var sleep = require('sleep');
 
-gpio.setup(3, gpio.DIR_OUT, write);
-gpio.setup(5, gpio.DIR_OUT, write);
-gpio.setup(7, gpio.DIR_OUT, write);
-gpio.setup(29, gpio.DIR_OUT, write);
+gpio.setup(3, gpio.DIR_OUT);
+gpio.setup(5, gpio.DIR_OUT);
+gpio.setup(7, gpio.DIR_OUT);
+gpio.setup(29, gpio.DIR_OUT);
 
 while (1) {
 	sleep.sleep(1)
