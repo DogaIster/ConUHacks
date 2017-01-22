@@ -11,6 +11,11 @@ const statusUpdateObj = (status = 'unknown!', update = 'unknown!', last_restart 
 	return obj;
 };
 
+const verifyCmpRegister = (ip, alias) => {
+	const ipRegex = /0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/;
+	const aliasRegex = /[a-zA-Z0-9-_]{1,15}/;
+	if (ip)
+}
 module.exports = {
 	statusUpdateObj
 };

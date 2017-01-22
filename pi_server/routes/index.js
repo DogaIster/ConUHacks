@@ -28,7 +28,14 @@ const getData = (req, res) => {
 };
 
 const regComp = (req, res) => {
-	console.log(req.body);
+	let ip;
+	let alias;
+	({
+		ip,
+		alias
+	} = req.body);
+
+
 	res.send({
 		err: 'unable to register computer'
 	});
