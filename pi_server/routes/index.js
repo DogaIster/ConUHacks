@@ -7,7 +7,6 @@ const watchdog = (() => {
 
 })();
 
-console.log(watchdog.statusUpdateObj());
 const router = express.Router();
 
 const index = (req, res) => {
@@ -19,25 +18,25 @@ const index = (req, res) => {
 
 
 const getData = (req, res) => {
-	console.log(req.body);
-	let arr = [];
-	for (var i = 0; i < 6; i++) {
-		arr.push(watchdog.statusUpdateObj());
-	}
-	res.send(arr);
+	watchdog.getStatus((data) => {
+		res.send(data);
+	});
 };
 
 const regComp = (req, res) => {
-	let ip;
-	let alias;
-	({
-		ip,
-		alias
-	} = req.body);
+	console.log(req.body);
+	//make async
+	watchdog.validCmpRegister(req.body, (data) => {
+		if (data) {
+			return res.send({
+				err: ''
+			});
+		} else {
+			return res.send({
+				err: `Unable to register computer IP:${req.body.ip}, Alias:${req.body.alias}`
+			});
+		}
 
-
-	res.send({
-		err: 'unable to register computer'
 	});
 };
 
