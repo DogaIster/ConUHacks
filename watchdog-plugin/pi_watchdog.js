@@ -1,7 +1,7 @@
 const ping = require("net-ping");
 const session = ping.createSession();
 
-const ping = (ip) => {
+const pingCmp = (ip) => {
 
 	session.pingHost(ip, function (error, target) {
 		if (error) {
@@ -29,5 +29,5 @@ const ping = (ip) => {
 }
 
 module.exports = {
-	ping,
+	pingCmp,
 }
